@@ -13,6 +13,8 @@
 		008274902B3BB9DE0070C53D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0082748E2B3BB9DE0070C53D /* Main.storyboard */; };
 		008274922B3BB9DF0070C53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 008274912B3BB9DF0070C53D /* Assets.xcassets */; };
 		008274952B3BB9DF0070C53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008274932B3BB9DF0070C53D /* LaunchScreen.storyboard */; };
+		6BAEC2162B3D1D0100C72939 /* ButtonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC2152B3D1D0100C72939 /* ButtonUIView.swift */; };
+		6BAEC2182B3D1D1D00C72939 /* ButtonUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEC2172B3D1D1D00C72939 /* ButtonUIView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		008274912B3BB9DF0070C53D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		008274942B3BB9DF0070C53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		008274962B3BB9DF0070C53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BAEC2152B3D1D0100C72939 /* ButtonUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIView.swift; sourceTree = "<group>"; };
+		6BAEC2172B3D1D1D00C72939 /* ButtonUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonUIView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		008274872B3BB9DE0070C53D /* Kiosk */ = {
 			isa = PBXGroup;
 			children = (
+				6BAEC2142B3D1CE000C72939 /* Button */,
 				008274882B3BB9DE0070C53D /* AppDelegate.swift */,
 				0082748A2B3BB9DE0070C53D /* SceneDelegate.swift */,
 				0082748C2B3BB9DE0070C53D /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				008274962B3BB9DF0070C53D /* Info.plist */,
 			);
 			path = Kiosk;
+			sourceTree = "<group>";
+		};
+		6BAEC2142B3D1CE000C72939 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				6BAEC2152B3D1D0100C72939 /* ButtonUIView.swift */,
+				6BAEC2172B3D1D1D00C72939 /* ButtonUIView.xib */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +141,7 @@
 			files = (
 				008274952B3BB9DF0070C53D /* LaunchScreen.storyboard in Resources */,
 				008274922B3BB9DF0070C53D /* Assets.xcassets in Resources */,
+				6BAEC2182B3D1D1D00C72939 /* ButtonUIView.xib in Resources */,
 				008274902B3BB9DE0070C53D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +155,7 @@
 			files = (
 				0082748D2B3BB9DE0070C53D /* ViewController.swift in Sources */,
 				008274892B3BB9DE0070C53D /* AppDelegate.swift in Sources */,
+				6BAEC2162B3D1D0100C72939 /* ButtonUIView.swift in Sources */,
 				0082748B2B3BB9DE0070C53D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

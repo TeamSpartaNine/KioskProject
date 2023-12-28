@@ -105,11 +105,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQU-kU-gxP" customClass="ButtonUIView" customModule="Kiosk" customModuleProvider="target">
+                                <rect key="frame" x="26" y="774" width="338" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                     </view>
                     <connections>
+                        <outlet property="buttonUIView" destination="VQU-kU-gxP" id="agP-mn-rtY"/>
                         <outlet property="kioskTitle" destination="Nnv-oP-eHF" id="FQJ-AP-HFs"/>
                         <outlet property="total" destination="lEM-dk-e2C" id="cBr-WO-iLA"/>
                         <outlet property="totalLabel" destination="bcq-yM-HJU" id="83U-oY-JWg"/>
