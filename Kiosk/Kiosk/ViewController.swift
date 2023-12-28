@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        kioskTitle.text = "9조버거"
+        kioskTitle.text = "NineBugers"
     
         
         total.text = "총주문내역"
