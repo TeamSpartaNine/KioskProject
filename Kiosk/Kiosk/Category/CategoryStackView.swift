@@ -8,13 +8,35 @@
 import UIKit
 
 class CategoryStackView: UIStackView {
+    
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBAction func TapMainMenu(_ sender: Any) {
+        sender
     }
-    */
-
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        customInit()
+        
+    }
+    
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
+        customInit()
+    }
+    
+    func customInit() {
+        if let view = Bundle.main.loadNibNamed("CategoryStackView", owner: self, options: nil)?.first as? UIStackView {
+            view.frame = self.bounds
+            addSubview(view)
+        }
+    }
+    
+    func alternativeCustomInit() {
+        if let view = UINib(nibName: "CategoryStackView", bundle: nil).instantiate(withOwner: self, options: nil).first as? UIStackView {
+            view.frame = self.bounds
+            addSubview(view)
+        }
+    }
 }
+
