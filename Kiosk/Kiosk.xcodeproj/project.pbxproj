@@ -19,8 +19,8 @@
 		00B95C422B3D3F37007C7BA7 /* BurgerMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00B95C402B3D3F37007C7BA7 /* BurgerMenu.xib */; };
 		00F969F32B3D66AB00E59F97 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F969F12B3D66AB00E59F97 /* SideMenu.swift */; };
 		00F969F42B3D66AB00E59F97 /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F969F22B3D66AB00E59F97 /* SideMenu.xib */; };
-		6BAEC2212B3EF36100C72939 /* ButtonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC2202B3EF36100C72939 /* ButtonUIView.swift */; };
-		6BAEC2232B3EF37400C72939 /* ButtonUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BAEC2222B3EF37400C72939 /* ButtonUIView.xib */; };
+		6B63CFC02B3EFD7F00FE898B /* ButtonUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B63CFBE2B3EFD7F00FE898B /* ButtonUIView.xib */; };
+		6B63CFC12B3EFD7F00FE898B /* ButtonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63CFBF2B3EFD7F00FE898B /* ButtonUIView.swift */; };
 		6BDDA5182B3E667F00E65BB4 /* CategoryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDDA5162B3E667F00E65BB4 /* CategoryStackView.swift */; };
 		6BDDA5192B3E667F00E65BB4 /* CategoryStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BDDA5172B3E667F00E65BB4 /* CategoryStackView.xib */; };
 /* End PBXBuildFile section */
@@ -40,8 +40,8 @@
 		00B95C402B3D3F37007C7BA7 /* BurgerMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BurgerMenu.xib; sourceTree = "<group>"; };
 		00F969F12B3D66AB00E59F97 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		00F969F22B3D66AB00E59F97 /* SideMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenu.xib; sourceTree = "<group>"; };
-		6BAEC2202B3EF36100C72939 /* ButtonUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIView.swift; sourceTree = "<group>"; };
-		6BAEC2222B3EF37400C72939 /* ButtonUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonUIView.xib; sourceTree = "<group>"; };
+		6B63CFBE2B3EFD7F00FE898B /* ButtonUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonUIView.xib; sourceTree = "<group>"; };
+		6B63CFBF2B3EFD7F00FE898B /* ButtonUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonUIView.swift; sourceTree = "<group>"; };
 		6BDDA5162B3E667F00E65BB4 /* CategoryStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStackView.swift; sourceTree = "<group>"; };
 		6BDDA5172B3E667F00E65BB4 /* CategoryStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryStackView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 		008274872B3BB9DE0070C53D /* Kiosk */ = {
 			isa = PBXGroup;
 			children = (
-				6BAEC21F2B3EF34700C72939 /* Button */,
+				6B63CFBD2B3EFD7F00FE898B /* Button */,
 				0003EAFC2B3EC6AB00EA5390 /* MenuList */,
 				6BDDA5152B3E667F00E65BB4 /* Category */,
 				0082748A2B3BB9DE0070C53D /* SceneDelegate.swift */,
@@ -127,14 +127,13 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
-		6BAEC21F2B3EF34700C72939 /* Button */ = {
+		6B63CFBD2B3EFD7F00FE898B /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				6BAEC2202B3EF36100C72939 /* ButtonUIView.swift */,
-				6BAEC2222B3EF37400C72939 /* ButtonUIView.xib */,
+				6B63CFBE2B3EFD7F00FE898B /* ButtonUIView.xib */,
+				6B63CFBF2B3EFD7F00FE898B /* ButtonUIView.swift */,
 			);
-			name = Button;
-			path = Category/Button;
+			path = Button;
 			sourceTree = "<group>";
 		};
 		6BDDA5152B3E667F00E65BB4 /* Category */ = {
@@ -210,7 +209,7 @@
 				6BDDA5192B3E667F00E65BB4 /* CategoryStackView.xib in Resources */,
 				00F969F42B3D66AB00E59F97 /* SideMenu.xib in Resources */,
 				008274922B3BB9DF0070C53D /* Assets.xcassets in Resources */,
-				6BAEC2232B3EF37400C72939 /* ButtonUIView.xib in Resources */,
+				6B63CFC02B3EFD7F00FE898B /* ButtonUIView.xib in Resources */,
 				008274902B3BB9DE0070C53D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,7 +223,7 @@
 			files = (
 				0037BA7F2B3D92E500000BAB /* Beverages.swift in Sources */,
 				00B95C412B3D3F37007C7BA7 /* BurgerMenu.swift in Sources */,
-				6BAEC2212B3EF36100C72939 /* ButtonUIView.swift in Sources */,
+				6B63CFC12B3EFD7F00FE898B /* ButtonUIView.swift in Sources */,
 				6BDDA5182B3E667F00E65BB4 /* CategoryStackView.swift in Sources */,
 				0082748D2B3BB9DE0070C53D /* ViewController.swift in Sources */,
 				00F969F32B3D66AB00E59F97 /* SideMenu.swift in Sources */,
