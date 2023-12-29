@@ -3,7 +3,7 @@
 //  Kiosk
 //
 //  Created by t2023-m0099 on 12/29/23.
-//
+// 오잉
 
 import UIKit
 
