@@ -8,9 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
-    //Buttonxib연결시도1차
 
     var count: Int = 0  // 장바구니
     
@@ -51,6 +48,7 @@ class ViewController: UIViewController {
         
         total.text = "총주문내역"
         total.textAlignment = .center
+        
         buttonUIView.delegate = self
 
 
@@ -62,8 +60,8 @@ class ViewController: UIViewController {
 extension ViewController: ButtonUIViewDelegate {
     func present() {
         
-        let cancelAlert = UIAlertController(title: "결제 취소", message: "결제가 취소됩니다.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "결제 취소", style: .default, handler: nil)
+        let cancelAlert = UIAlertController(title: "전체 취소", message: "전체 취소 하시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "전체 취소", style: .default, handler: nil)
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         cancelAlert.addAction(okAction)
@@ -72,5 +70,15 @@ extension ViewController: ButtonUIViewDelegate {
         self.present(cancelAlert, animated: true)
     }
     
+    func payPresent() {
+        let payAlert = UIAlertController(title: "결제 진행", message: "결제 하시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "결제", style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        payAlert.addAction(cancelAction)
+        payAlert.addAction(okAction)
+        
+        self.present(payAlert, animated: true)
+    }
     
 }
