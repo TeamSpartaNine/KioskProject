@@ -9,10 +9,17 @@ import UIKit
 
 class CategoryStackView: UIStackView {
     
-
     @IBAction func TapMainMenu(_ sender: Any) {
-        sender
+        print("메인메뉴 선택")
     }
+    @IBAction func TapSideMenu(_ sender: Any) {
+        print("사이드메뉴 선택")
+    }
+    @IBAction func TapBeverage(_ sender: Any) {
+        print("음료메뉴 선택")
+    }
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
