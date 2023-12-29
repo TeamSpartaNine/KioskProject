@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var count: Int = 0  // 장바구니
 
     @IBOutlet var menuCollection: UICollectionView!
     
@@ -19,6 +21,7 @@ class ViewController: UIViewController {
     private var beveragesData = BeveragesData()
     private var sideMenuData = SideMenuData()
 
+    @IBOutlet weak var buttonUIView: ButtonUIView!
     @IBOutlet var kioskTitle: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var total: UILabel!
@@ -38,6 +41,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         categoryStackView.delegate = self
+        buttonUIView.delegate = self
+        
         
         manuCollectionViewDelegate()
         
@@ -52,6 +57,7 @@ class ViewController: UIViewController {
         total.text = "총주문내역"
         total.textAlignment = .center
         
+        self.refreshLabel()
         setupFlowLayOut()
     }
     
@@ -77,6 +83,11 @@ class ViewController: UIViewController {
     func reloadMenu(type: MenuType) {
            currentMenuType = type
            menuCollection.reloadData()  //화면 갱신
+    }
+    
+    //장바구니 카운트
+    func refreshLabel(){
+        self.totalLabel.text = "\(self.count) 개"
     }
     
     //XIB
