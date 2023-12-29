@@ -56,4 +56,49 @@ class ButtonUIView: UIView {
     }
     
 }
+
+extension ViewController: ButtonUIViewDelegate {
+    func present() {
+        
+        let cancelAlert = UIAlertController(title: "전체 취소", message: "전체 취소 하시겠습니까?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "전체 취소", style: .default, handler: {action in
+            print("취소 완료")
+            self.totalLabel.text = "0 개"
+        })
+        
+        if totalLabel.text == "0 개" {
+            okAction.isEnabled = false
+        } else {
+            okAction.isEnabled = true
+        }
+        
+        
+        cancelAlert.addAction(okAction)
+        cancelAlert.addAction(cancelAction)
+        
+        self.present(cancelAlert, animated: true)
+    }
+    
+    func payPresent() {
+        
+        let payAlert = UIAlertController(title: "결제 진행", message: "결제 하시겠습니까?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "결제", style: .default, handler: {action in print("결제 완료")
+            self.totalLabel.text = "0 개"
+        })
+        
+        if totalLabel.text == "0 개" {
+            okAction.isEnabled = false
+        } else {
+            okAction.isEnabled = true
+        }
+        
+        payAlert.addAction(cancelAction)
+        payAlert.addAction(okAction)
+        
+        self.present(payAlert, animated: true)
+    }
+}
+
 //다른 대상에게 일을 시킬 수 있다 > 델리게이트 패턴으로 구현할 수 있고 대상 타입으로 선언하는 게 아니고 프로토콜 타입으로 선언하여
