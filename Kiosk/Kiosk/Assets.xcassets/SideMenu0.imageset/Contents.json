@@ -2,16 +2,7 @@
   "images" : [
     {
       "filename" : "French Fries Fast Food Friday Wall And Art Print _ French-fries.jpeg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {

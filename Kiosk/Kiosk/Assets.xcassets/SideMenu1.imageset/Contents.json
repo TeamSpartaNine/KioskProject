@@ -2,16 +2,7 @@
   "images" : [
     {
       "filename" : "[리뷰] 포미 찹쌀치즈볼.jpeg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
