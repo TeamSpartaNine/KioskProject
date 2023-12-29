@@ -13,47 +13,28 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var categoryStackView: CategoryStackView!
     
-    
     var count: Int = 0  // 장바구니
     
     //이미지 데이터들
     private var burgerData = BurGerData()
     private var beveragesData = BeveragesData()
     private var sideMenuData = SideMenuData()
-    
-    
+
     @IBOutlet var kioskTitle: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var total: UILabel!
     @IBOutlet var totalMoney: UILabel!
-    
+
     //셀 식별자 구분
-    enum MenuType: String {
+    public enum MenuType: String {
         case mainMenu = "BurgerMenu"
         case beverages = "Beverages"
         case sideMenu = "SideMenu"
     }
 
-    
     //초기메뉴화면
     var currentMenuType: MenuType = .mainMenu
 
-    
-    // 메인메뉴 햄버거
-    @IBAction func mainMenu(_ sender: Any) {
-        showMenu(type: .mainMenu)
-    }
-    
-    // 사이드메뉴
-    @IBAction func sideMenu(_ sender: Any) {
-        showMenu(type: .sideMenu)
-    }
-    
-    //음료메뉴
-    @IBAction func beverages(_ sender: Any) {
-        showMenu(type: .beverages)
-    }
-    
     //장바구니 카운트
     func refreshLabel(){
         self.totalLabel.text = "\(self.count) 개"
@@ -66,10 +47,12 @@ class ViewController: UIViewController {
         
         manuCollectionViewDelegate()
         
-//        registerNib()
-        showMenu(type: .mainMenu) // 초기에는 메인메뉴를 보여줌
-        
+        registerNib(for: .mainMenu)
+        registerNib(for: .beverages)
+        registerNib(for: .sideMenu)
 
+        reloadMenu(type: .mainMenu) // 초기에는 메인메뉴를 보여줌
+         
         kioskTitle.text = "NineBugers"
         total.text = "총주문내역"
         total.textAlignment = .center
@@ -96,15 +79,15 @@ class ViewController: UIViewController {
     }
     
     //화면 업데이트
-    func showMenu(type: MenuType) {
+    func reloadMenu(type: MenuType) {
            currentMenuType = type
-           registerNib(for: type)
            menuCollection.reloadData()  //화면 갱신
     }
     
     //XIB등록
     private func registerNib(for menuType: MenuType) {
         let nibName: String
+        
         switch menuType {
         case .mainMenu:
             nibName = "BurgerMenu"
@@ -113,12 +96,13 @@ class ViewController: UIViewController {
         case .sideMenu:
             nibName = "SideMenu"
         }
+        
         let nib = UINib(nibName: nibName, bundle: nil)
         menuCollection.register(nib, forCellWithReuseIdentifier: nibName)
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     //아이템 개수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -153,10 +137,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
 }
 
 extension ViewController: CategoryStackViewDelegate {
-    func changeToMainMenu() {
+    func changeToMenu(type: MenuType) {
         print(#function)
-        menuCollection.reloadData()
+        reloadMenu(type: type)
     }
-    
-    
 }

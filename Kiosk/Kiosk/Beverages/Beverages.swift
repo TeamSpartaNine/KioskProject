@@ -15,22 +15,21 @@ class Beverages: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
 }
 
 struct BeveragesData{
-    private var sideArr = [UIImage]()
+    private var beveragesArr = [UIImage]()
     
     init(){
         createImage()
     }
     mutating func createImage(){
-        for index in 0...6{
-            if let image = UIImage(named: "Beverages\(index).png"){sideArr.append(image)
+        for index in 0...3{
+            if let image = UIImage(named: "Beverages\(index).png"){beveragesArr.append(image)
             }
         }
     }
     var imageArray: [UIImage]{
-        return sideArr
+        return beveragesArr
     }
 }

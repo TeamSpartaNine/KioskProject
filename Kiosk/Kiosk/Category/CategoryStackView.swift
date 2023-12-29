@@ -13,25 +13,26 @@ class CategoryStackView: UIStackView {
     
     @IBAction func TapMainMenu(_ sender: Any) {
         print("메인메뉴 선택")
-        delegate?.changeToMainMenu()
+
+        delegate?.changeToMenu(type: .mainMenu)
     }
+    
     @IBAction func TapSideMenu(_ sender: Any) {
         print("사이드메뉴 선택")
-        delegate?.changeToMainMenu()
-    
+
+        delegate?.changeToMenu(type: .sideMenu)
     }
+    
     @IBAction func TapBeverage(_ sender: Any) {
         print("음료메뉴 선택")
-        delegate?.changeToMainMenu()
 
+        delegate?.changeToMenu(type: .beverages)
     }
-    
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         customInit()
-        
     }
     
     required init(coder: NSCoder) {
@@ -55,5 +56,5 @@ class CategoryStackView: UIStackView {
 }
 
 protocol CategoryStackViewDelegate: AnyObject {
-    func changeToMainMenu()
+    func changeToMenu(type: ViewController.MenuType)
 }

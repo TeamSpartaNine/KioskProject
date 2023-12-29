@@ -10,24 +10,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BurgerMenu" customModule="Kiosk" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BurgerMenu" id="gTV-IL-0wX" customClass="BurgerMenu" customModule="Kiosk" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="82" height="87"/>
+            <rect key="frame" x="0.0" y="0.0" width="92" height="96"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="82" height="87"/>
+                <rect key="frame" x="0.0" y="0.0" width="92" height="96"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbx-58-AGU">
-                        <rect key="frame" x="0.0" y="0.0" width="82" height="87"/>
+                        <rect key="frame" x="0.0" y="0.0" width="92" height="96"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="82" height="87"/>
+            <size key="customSize" width="92" height="96"/>
             <connections>
                 <outlet property="mainMenuImage" destination="nbx-58-AGU" id="fzQ-xa-2ot"/>
             </connections>
-            <point key="canvasLocation" x="-205" y="-2"/>
+            <point key="canvasLocation" x="-198.47328244274809" y="0.70422535211267612"/>
         </collectionViewCell>
     </objects>
 </document>

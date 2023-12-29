@@ -22,9 +22,8 @@ struct BurGerData{
     init(){
         createImage()
     }
-    
     mutating func createImage(){
-        for index in 0...6{
+        for index in 0...3{
             if let image = UIImage(named: "Image\(index).png"){arr.append(image)
             }
         }
