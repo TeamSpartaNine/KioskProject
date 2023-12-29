@@ -7,26 +7,25 @@
 
 import UIKit
 
-class BugerMenu: UICollectionViewCell {
-
+class BurgerMenu: UICollectionViewCell {
+    
     @IBOutlet var mainMenuImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
 }
-struct Data{
+struct BurGerData{
     private var arr = [UIImage]()
     
     init(){
-        creatImage()
+        createImage()
     }
     
-    mutating func creatImage(){
-        if let image = UIImage(named: "BulgogiBurger.png"){
-            for _ in 0..<40{
-                arr.append(image)
+    mutating func createImage(){
+        for index in 0...6{
+            if let image = UIImage(named: "Image\(index).png"){arr.append(image)
             }
         }
     }

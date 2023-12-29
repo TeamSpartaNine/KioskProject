@@ -8,10 +8,26 @@
 import UIKit
 
 class SideMenu: UICollectionViewCell {
-
+    @IBOutlet var sideMenu: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+}
+struct SideMenuData{
+    private var sideArr = [UIImage]()
+    
+    init(){
+        createImage()
+    }
+    mutating func createImage(){
+        for index in 0...6{
+            if let image = UIImage(named: "Beverages\(index).png"){sideArr.append(image)
+            }
+        }
+    }
+    var imageArray: [UIImage]{
+        return sideArr
+    }
 }
