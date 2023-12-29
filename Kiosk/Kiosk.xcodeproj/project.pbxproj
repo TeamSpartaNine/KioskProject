@@ -60,7 +60,6 @@
 		0003EAFC2B3EC6AB00EA5390 /* MenuList */ = {
 			isa = PBXGroup;
 			children = (
-				6BAEC21F2B3EF34700C72939 /* Button */,
 				00B95C3E2B3D3F05007C7BA7 /* Menu */,
 				00F969F02B3D667A00E59F97 /* SideMenu */,
 				0037BA7C2B3D92D000000BAB /* Beverages */,
@@ -98,8 +97,9 @@
 			children = (
 				0003EAFC2B3EC6AB00EA5390 /* MenuList */,
 				6BDDA5152B3E667F00E65BB4 /* Category */,
-				008274882B3BB9DE0070C53D /* AppDelegate.swift */,
+				6BAEC21F2B3EF34700C72939 /* Button */,
 				0082748A2B3BB9DE0070C53D /* SceneDelegate.swift */,
+				008274882B3BB9DE0070C53D /* AppDelegate.swift */,
 				0082748C2B3BB9DE0070C53D /* ViewController.swift */,
 				0082748E2B3BB9DE0070C53D /* Main.storyboard */,
 				008274912B3BB9DF0070C53D /* Assets.xcassets */,
@@ -133,7 +133,8 @@
 				6BAEC2202B3EF36100C72939 /* ButtonUIView.swift */,
 				6BAEC2222B3EF37400C72939 /* ButtonUIView.xib */,
 			);
-			path = Button;
+			name = Button;
+			path = Category/Button;
 			sourceTree = "<group>";
 		};
 		6BDDA5152B3E667F00E65BB4 /* Category */ = {
