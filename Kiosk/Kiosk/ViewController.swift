@@ -125,6 +125,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             cell = beveragesCell
         case .sideMenu:
             let sideMenuCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "SideMenu", for: indexPath) as! SideMenu
+            sideMenuCell.sideMenu.image = sideMenuData.imageArray[indexPath.row]
             cell = sideMenuCell
         }
         return cell
