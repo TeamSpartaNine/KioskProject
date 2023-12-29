@@ -3,7 +3,7 @@
 //  Kiosk
 //
 //  Created by t2023-m0044 on 12/28/23.
-//
+// 언제까지 수정하는 거예요!!
 
 import UIKit
 
