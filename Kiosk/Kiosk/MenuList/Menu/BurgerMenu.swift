@@ -8,7 +8,6 @@
 import UIKit
 
 class BurgerMenu: UICollectionViewCell {
-    
     @IBOutlet var mainMenuImage: UIImageView!
     
     override func awakeFromNib() {

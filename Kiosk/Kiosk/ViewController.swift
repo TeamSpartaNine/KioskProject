@@ -12,8 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet var menuCollection: UICollectionView!
     
     @IBOutlet weak var categoryStackView: CategoryStackView!
-    
-    var count: Int = 0  // 장바구니
+
     
     //이미지 데이터들
     private var burgerData = BurGerData()
@@ -34,11 +33,6 @@ class ViewController: UIViewController {
 
     //초기메뉴화면
     var currentMenuType: MenuType = .mainMenu
-
-    //장바구니 카운트
-    func refreshLabel(){
-        self.totalLabel.text = "\(self.count) 개"
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +41,7 @@ class ViewController: UIViewController {
         
         manuCollectionViewDelegate()
         
+        //xib register
         registerNib(for: .mainMenu)
         registerNib(for: .beverages)
         registerNib(for: .sideMenu)
@@ -84,7 +79,7 @@ class ViewController: UIViewController {
            menuCollection.reloadData()  //화면 갱신
     }
     
-    //XIB등록
+    //XIB
     private func registerNib(for menuType: MenuType) {
         let nibName: String
         
@@ -142,3 +137,4 @@ extension ViewController: CategoryStackViewDelegate {
         reloadMenu(type: type)
     }
 }
+
