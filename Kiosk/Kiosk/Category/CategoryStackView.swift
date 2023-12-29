@@ -9,14 +9,21 @@ import UIKit
 
 class CategoryStackView: UIStackView {
     
+    weak var delegate: CategoryStackViewDelegate?
+    
     @IBAction func TapMainMenu(_ sender: Any) {
         print("메인메뉴 선택")
+        delegate?.changeToMainMenu()
     }
     @IBAction func TapSideMenu(_ sender: Any) {
         print("사이드메뉴 선택")
+        delegate?.changeToMainMenu()
+    
     }
     @IBAction func TapBeverage(_ sender: Any) {
         print("음료메뉴 선택")
+        delegate?.changeToMainMenu()
+
     }
     
     
@@ -47,3 +54,6 @@ class CategoryStackView: UIStackView {
     }
 }
 
+protocol CategoryStackViewDelegate: AnyObject {
+    func changeToMainMenu()
+}

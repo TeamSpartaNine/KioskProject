@@ -11,6 +11,9 @@ class ViewController: UIViewController {
 
     @IBOutlet var menuCollection: UICollectionView!
     
+    @IBOutlet weak var categoryStackView: CategoryStackView!
+    
+    
     var count: Int = 0  // 장바구니
     
     //이미지 데이터들
@@ -58,7 +61,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        categoryStackView.delegate = self
+        
         manuCollectionViewDelegate()
         
 //        registerNib()
@@ -91,7 +96,7 @@ class ViewController: UIViewController {
     }
     
     //화면 업데이트
-    private func showMenu(type: MenuType) {
+    func showMenu(type: MenuType) {
            currentMenuType = type
            registerNib(for: type)
            menuCollection.reloadData()  //화면 갱신
@@ -147,3 +152,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     }
 }
 
+extension ViewController: CategoryStackViewDelegate {
+    func changeToMainMenu() {
+        print(#function)
+        menuCollection.reloadData()
+    }
+    
+    
+}
