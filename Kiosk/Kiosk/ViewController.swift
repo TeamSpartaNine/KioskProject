@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var total: UILabel!
     @IBOutlet var totalMoney: UILabel!
     
-    
+    //결제, 취소 버튼 아울렛
     @IBOutlet weak var buttonUIView: ButtonUIView!
     
     
@@ -44,25 +44,38 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         kioskTitle.text = "NineBugers"
-    
-        
         total.text = "총주문내역"
         total.textAlignment = .center
         
         buttonUIView.delegate = self
-
 
         self.refreshLabel()
     }
     //test
     //home test
 }
+
+
+
+
+//결제 취소 버튼 alert 구현 내용
 extension ViewController: ButtonUIViewDelegate {
     func present() {
         
         let cancelAlert = UIAlertController(title: "전체 취소", message: "전체 취소 하시겠습니까?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "전체 취소", style: .default, handler: nil)
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "전체 취소", style: .default, handler: {action in 
+            print("취소 완료")
+            self.totalLabel.text = "0 개"
+
+        })
+        
+        if totalLabel.text == "0 개" {
+            okAction.isEnabled = false
+        } else {
+            okAction.isEnabled = true
+        }
+        
         
         cancelAlert.addAction(okAction)
         cancelAlert.addAction(cancelAction)
@@ -71,14 +84,22 @@ extension ViewController: ButtonUIViewDelegate {
     }
     
     func payPresent() {
+        
         let payAlert = UIAlertController(title: "결제 진행", message: "결제 하시겠습니까?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "결제", style: .default, handler: nil)
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "결제", style: .default, handler: {action in print("결제 완료")
+            self.totalLabel.text = "0 개"
+        })
+        
+        if totalLabel.text == "0 개" {
+            okAction.isEnabled = false
+        } else {
+            okAction.isEnabled = true
+        }
         
         payAlert.addAction(cancelAction)
         payAlert.addAction(okAction)
         
         self.present(payAlert, animated: true)
     }
-    
 }

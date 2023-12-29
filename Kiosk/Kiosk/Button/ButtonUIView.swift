@@ -8,19 +8,18 @@
 
 import UIKit
 
-//
 protocol ButtonUIViewDelegate: AnyObject { //시키는 곳
     func present()
     func payPresent()
 }
-//
+
 
 
 class ButtonUIView: UIView {
     
-    //
+    
     weak var delegate: ButtonUIViewDelegate?
-    //
+    
     
     @IBOutlet weak var cancelbutton: UIButton!
     
@@ -48,16 +47,12 @@ class ButtonUIView: UIView {
     
     
     @IBAction func cancelbutton(_ sender: Any) {
-        //
         delegate?.present()
-        //
         // present뷰컨트롤러의 메서드. 객체간의 소통이다. delegating방식으로? 강의 arc 보기
     }
 
     @IBAction func pay(_ sender: Any) {
-        
         delegate?.payPresent()
-        
     }
     
 }
