@@ -8,6 +8,7 @@
 import UIKit
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 protocol Zoomable {
     func zoomIn()
     func zoomOut()
@@ -15,6 +16,8 @@ protocol Zoomable {
 
 class ViewController: UIViewController {
 =======
+=======
+>>>>>>> Stashed changes
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet var menuCollection: UICollectionView!
@@ -76,6 +79,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         // 핀치 제스처의 closure 처리
         pinchGesture.addTarget(self, action: #selector(handlePinchGesture(recognizer:)))
+<<<<<<< Updated upstream
+=======
+        
+        let zoomButton = ZoomButton()
+        view.addSubview(zoomButton)
+        
+        zoomButton.translatesAutoresizingMaskIntoConstraints = false
+        zoomButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
+        zoomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        zoomButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        zoomButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
+        zoomButton.backgroundColor = nil
+        
+    }
+>>>>>>> Stashed changes
     }
 
     @objc func handlePinchGesture(recognizer: UIPinchGestureRecognizer) {
