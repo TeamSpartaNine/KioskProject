@@ -13,7 +13,6 @@
 		008274902B3BB9DE0070C53D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0082748E2B3BB9DE0070C53D /* Main.storyboard */; };
 		008274922B3BB9DF0070C53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 008274912B3BB9DF0070C53D /* Assets.xcassets */; };
 		008274952B3BB9DF0070C53D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 008274932B3BB9DF0070C53D /* LaunchScreen.storyboard */; };
-		2BAA38A12B3ED4950086B069 /* ZoomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAA38A02B3ED4950086B069 /* ZoomButton.swift */; };
 		2BAA38A32B3EF3360086B069 /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2BAA38A22B3EF3360086B069 /* audio.mp3 */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		008274912B3BB9DF0070C53D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		008274942B3BB9DF0070C53D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		008274962B3BB9DF0070C53D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BAA38A02B3ED4950086B069 /* ZoomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomButton.swift; sourceTree = "<group>"; };
 		2BAA38A22B3EF3360086B069 /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +61,6 @@
 				008274882B3BB9DE0070C53D /* AppDelegate.swift */,
 				0082748A2B3BB9DE0070C53D /* SceneDelegate.swift */,
 				0082748C2B3BB9DE0070C53D /* ViewController.swift */,
-				2BAA38A02B3ED4950086B069 /* ZoomButton.swift */,
 				0082748E2B3BB9DE0070C53D /* Main.storyboard */,
 				008274912B3BB9DF0070C53D /* Assets.xcassets */,
 				2BAA38A22B3EF3360086B069 /* audio.mp3 */,
@@ -147,7 +144,6 @@
 			files = (
 				0082748D2B3BB9DE0070C53D /* ViewController.swift in Sources */,
 				008274892B3BB9DE0070C53D /* AppDelegate.swift in Sources */,
-				2BAA38A12B3ED4950086B069 /* ZoomButton.swift in Sources */,
 				0082748B2B3BB9DE0070C53D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

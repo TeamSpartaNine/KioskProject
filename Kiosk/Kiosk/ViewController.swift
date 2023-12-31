@@ -111,6 +111,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let nib = UINib(nibName: nibName, bundle: nil)
         menuCollection.register(nib, forCellWithReuseIdentifier: nibName)
     }
+<<<<<<< Updated upstream
     @objc func handlePinchGesture(_ recognizer: UIPinchGestureRecognizer) {
         let flowLayout = menuCollection.collectionViewLayout as? UICollectionViewFlowLayout
 
@@ -187,3 +188,5 @@ extension ViewController: CategoryStackViewDelegate {
         reloadMenu(type: type)
     }
 }
+=======
+>>>>>>> Stashed changes
