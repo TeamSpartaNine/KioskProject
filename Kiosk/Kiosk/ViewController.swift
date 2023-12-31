@@ -60,7 +60,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.refreshLabel()
         setupFlowLayOut()
         
-        // Add pinch gesture recognizer to menuCollection
+        // 메뉴 컬렉션뷰에 핀치 제스처 추가
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
         pinchGesture.delegate = self
         menuCollection.addGestureRecognizer(pinchGesture)
@@ -111,28 +111,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let nib = UINib(nibName: nibName, bundle: nil)
         menuCollection.register(nib, forCellWithReuseIdentifier: nibName)
     }
-<<<<<<< Updated upstream
     @objc func handlePinchGesture(_ recognizer: UIPinchGestureRecognizer) {
-        let flowLayout = menuCollection.collectionViewLayout as? UICollectionViewFlowLayout
-
         switch recognizer.state {
         case .began, .changed:
-            // Scale the collection view based on the pinch gesture
+            // 현재 핀치 스케일 계산
             let currentScale = recognizer.scale
 
-            // Calculate the new scale based on pinch gesture
-            let newScale = currentScale > 1.0 ? min(1.5, currentScale) : max(1.0, currentScale)
-            flowLayout?.invalidateLayout()
+            // 새로운 스케일 계산 (최소 0.5, 최대 2.0으로 설정)
+            let newScale = currentScale > 1.0 ? min(2.0, currentScale) : max(1.0, currentScale)
 
-            // Adjust the item size based on the pinch scale
-            let halfWidth = UIScreen.main.bounds.width / 2
-            let newWidth = halfWidth * 0.4 * newScale
-            let newHeight = halfWidth * 0.4 * newScale
-            flowLayout?.itemSize = CGSize(width: newWidth, height: newHeight)
-            menuCollection.setCollectionViewLayout(flowLayout!, animated: false)
+            // 변경된 스케일을 적용하여 컬렉션 뷰의 크기 조정
+            menuCollection.transform = CGAffineTransform(scaleX: newScale, y: newScale)
+            
+            // 컬렉션 뷰의 zPosition을 변경하여 다른 뷰보다 위에 오도록 함
+             menuCollection.layer.zPosition = 1.0
 
         case .ended:
-            // Reset any changes if needed
+            // 변경 완료 시 추가 작업 수행 (옵션)
             break
 
         default:
@@ -140,7 +135,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
-    // Delegate method to allow simultaneous recognition of gestures
+
+
+
+    // 동시에 제스처 인식 가능하도록 하는 델리게이트 메서드
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
@@ -188,5 +186,4 @@ extension ViewController: CategoryStackViewDelegate {
         reloadMenu(type: type)
     }
 }
-=======
->>>>>>> Stashed changes
+
