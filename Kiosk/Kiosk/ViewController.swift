@@ -7,18 +7,9 @@
 
 import UIKit
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-protocol Zoomable {
-    func zoomIn()
-    func zoomOut()
-}
-
-class ViewController: UIViewController {
-=======
-=======
->>>>>>> Stashed changes
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
+    
+    var count: Int = 0  // 장바구니
 
     @IBOutlet var menuCollection: UICollectionView!
     
@@ -30,6 +21,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     private var beveragesData = BeveragesData()
     private var sideMenuData = SideMenuData()
 
+   // @IBOutlet weak var buttonUIView: ButtonUIView!
     @IBOutlet var kioskTitle: UILabel!
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var total: UILabel!
@@ -44,69 +36,34 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     //초기메뉴화면
     var currentMenuType: MenuType = .mainMenu
->>>>>>> Stashed changes
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let zoomButton = ZoomButton()
+        categoryStackView.delegate = self
+   //     buttonUIView.delegate = self
         
-        view.addSubview(zoomButton)
         
-        zoomButton.translatesAutoresizingMaskIntoConstraints = false
-        zoomButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 36).isActive = true
-        zoomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        zoomButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        zoomButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        zoomButton.backgroundColor = nil
+        manuCollectionViewDelegate()
         
-    }
+        //xib register
+        registerNib(for: .mainMenu)
+        registerNib(for: .beverages)
+        registerNib(for: .sideMenu)
 
-<<<<<<< Updated upstream
-=======
         reloadMenu(type: .mainMenu) // 초기에는 메인메뉴를 보여줌
          
         kioskTitle.text = "NineBugers"
         total.text = "총주문내역"
         total.textAlignment = .center
         
+        self.refreshLabel()
         setupFlowLayOut()
         
-        // 핀치 제스처 생성 및 처리
-        let pinchGesture = UIPinchGestureRecognizer(target: self, action: nil)
+        // Add pinch gesture recognizer to menuCollection
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
         pinchGesture.delegate = self
         menuCollection.addGestureRecognizer(pinchGesture)
-
-        // 핀치 제스처의 closure 처리
-        pinchGesture.addTarget(self, action: #selector(handlePinchGesture(recognizer:)))
-<<<<<<< Updated upstream
-=======
-        
-        let zoomButton = ZoomButton()
-        view.addSubview(zoomButton)
-        
-        zoomButton.translatesAutoresizingMaskIntoConstraints = false
-        zoomButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 16).isActive = true
-        zoomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
-        zoomButton.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        zoomButton.heightAnchor.constraint(equalToConstant: 64).isActive = true
-        zoomButton.backgroundColor = nil
-        
-    }
->>>>>>> Stashed changes
-    }
-
-    @objc func handlePinchGesture(recognizer: UIPinchGestureRecognizer) {
-        if recognizer.state == .changed {
-            // 현재 제스처의 scale 값을 이용하여 필요한 작업을 수행할 수 있습니다.
-            let scale = recognizer.scale
-            // 예시: 현재 scale 값을 이용하여 UICollectionView 크기 조절
-            menuCollection.transform = CGAffineTransform(scaleX: scale, y: scale)
-        } else if recognizer.state == .ended || recognizer.state == .cancelled {
-            // 제스처가 끝난 경우 또는 취소된 경우, 필요한 작업을 수행할 수 있습니다.
-            // 여기서는 예시로 UICollectionView를 원래 크기로 돌리는 코드를 작성합니다.
-            menuCollection.transform = .identity
-        }
     }
     
     private func manuCollectionViewDelegate(){
@@ -133,6 +90,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
            menuCollection.reloadData()  //화면 갱신
     }
     
+    //장바구니 카운트
+    func refreshLabel(){
+        self.totalLabel.text = "\(self.count) 개"
+    }
+    
     //XIB
     private func registerNib(for menuType: MenuType) {
         let nibName: String
@@ -149,5 +111,79 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let nib = UINib(nibName: nibName, bundle: nil)
         menuCollection.register(nib, forCellWithReuseIdentifier: nibName)
     }
->>>>>>> Stashed changes
+    @objc func handlePinchGesture(_ recognizer: UIPinchGestureRecognizer) {
+        let flowLayout = menuCollection.collectionViewLayout as? UICollectionViewFlowLayout
+
+        switch recognizer.state {
+        case .began, .changed:
+            // Scale the collection view based on the pinch gesture
+            let currentScale = recognizer.scale
+
+            // Calculate the new scale based on pinch gesture
+            let newScale = currentScale > 1.0 ? min(1.5, currentScale) : max(1.0, currentScale)
+            flowLayout?.invalidateLayout()
+
+            // Adjust the item size based on the pinch scale
+            let halfWidth = UIScreen.main.bounds.width / 2
+            let newWidth = halfWidth * 0.4 * newScale
+            let newHeight = halfWidth * 0.4 * newScale
+            flowLayout?.itemSize = CGSize(width: newWidth, height: newHeight)
+            menuCollection.setCollectionViewLayout(flowLayout!, animated: false)
+
+        case .ended:
+            // Reset any changes if needed
+            break
+
+        default:
+            break
+        }
+    }
+
+    // Delegate method to allow simultaneous recognition of gestures
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+}
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    //아이템 개수 설정
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch currentMenuType {
+        case .mainMenu:
+            return burgerData.imageArray.count
+        case .beverages:
+            return beveragesData.imageArray.count
+        case .sideMenu:
+            return sideMenuData.imageArray.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell: UICollectionViewCell
+        
+        switch currentMenuType {
+        case .mainMenu:
+            let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
+            burgerCell.mainMenuImage.image = burgerData.imageArray[indexPath.row]
+            cell = burgerCell
+        case .beverages:
+            let beveragesCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "Beverages", for: indexPath) as! Beverages
+            beveragesCell.beverages.image = beveragesData.imageArray[indexPath.row]
+            cell = beveragesCell
+        case .sideMenu:
+            let sideMenuCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "SideMenu", for: indexPath) as! SideMenu
+            sideMenuCell.sideMenu.image = sideMenuData.imageArray[indexPath.row]
+            cell = sideMenuCell
+        }
+        return cell
+    }
+}
+
+extension ViewController: CategoryStackViewDelegate {
+    func changeToMenu(type: MenuType) {
+        print(#function)
+        reloadMenu(type: type)
+    }
 }
