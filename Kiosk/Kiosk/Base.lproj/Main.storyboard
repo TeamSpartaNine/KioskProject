@@ -96,6 +96,7 @@
                         <outlet property="categoryStackView" destination="ywK-2p-K6Y" id="QA5-Xa-fZk"/>
                         <outlet property="kioskTitle" destination="Nnv-oP-eHF" id="FQJ-AP-HFs"/>
                         <outlet property="menuCollection" destination="zmr-2f-gbR" id="D7K-9X-8Uq"/>
+                        <outlet property="tableView" destination="Lta-g5-U9c" id="DFb-KP-UaD"/>
                         <outlet property="total" destination="lEM-dk-e2C" id="cBr-WO-iLA"/>
                         <outlet property="totalLabel" destination="bcq-yM-HJU" id="83U-oY-JWg"/>
                         <outlet property="totalMoney" destination="9dL-vG-Hml" id="Hc8-Su-TbF"/>

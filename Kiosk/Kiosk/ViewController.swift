@@ -26,7 +26,15 @@ class ViewController: UIViewController {
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var total: UILabel!
     @IBOutlet var totalMoney: UILabel!
-
+    
+    //MARK: OrderList TableView
+    @IBOutlet weak var tableView: UITableView!
+    var orderList : [OrderList] = []
+    //dummy
+    let menuData = ["빅맥", "불고기버거", "치즈버거", "치킨버거"]
+    let priceData = ["4500", "3400", "5000", "4600"]
+    var menuCntData = 1
+    
     //셀 식별자 구분
     public enum MenuType: String {
         case mainMenu = "BurgerMenu"
@@ -59,6 +67,11 @@ class ViewController: UIViewController {
         
         self.refreshLabel()
         setupFlowLayOut()
+        
+        //MARK: OrderTableView
+        self.tableView.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     private func manuCollectionViewDelegate(){
@@ -141,6 +154,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
+    
 }
 
 extension ViewController: CategoryStackViewDelegate {
@@ -150,3 +164,41 @@ extension ViewController: CategoryStackViewDelegate {
     }
 }
 
+//MARK: OrderTableView
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListTableViewCell", for: indexPath) as? OrderListTableViewCell {
+            cell.menuName.text = menuData[indexPath.row]
+            cell.menuPrice.text = priceData[indexPath.row] + "원"
+            cell.menuCount.text = "\(menuCntData)"
+            
+            // 매뉴증감 Closure event
+            cell.plusBtn = {
+                self.menuCntData += 1
+                self.refreshLabel()
+                tableView.reloadData()
+                print("vc + closure")
+                print("\(self.menuCntData)")
+            }
+            
+            cell.minusBtn = {
+                if(self.menuCntData > 0) {
+                    self.menuCntData -= 1
+                    self.refreshLabel()
+                    tableView.reloadData()
+                    print("vc + closure")
+                    print("\(self.menuCntData)")
+    
+                }
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+}

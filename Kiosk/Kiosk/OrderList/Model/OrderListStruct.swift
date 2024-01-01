@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct OrderList {
+    var menuName: String
+    var menuPrice: Int
+    var totalPrice: Int
+    var menuCount: Int
+}
+
