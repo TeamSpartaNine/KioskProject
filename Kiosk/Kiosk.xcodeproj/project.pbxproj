@@ -46,7 +46,7 @@
 		00F969F22B3D66AB00E59F97 /* SideMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenu.xib; sourceTree = "<group>"; };
 		2E584D782B422A1E0027172E /* OrderListStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListStruct.swift; sourceTree = "<group>"; };
 		2E584D842B422F990027172E /* OrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewCell.swift; sourceTree = "<group>"; };
-		2E584D882B42300C0027172E /* OrderListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderListTableViewCell.xib; path = ../../../../../../../../../../Downloads/OrderListTableViewCell.xib; sourceTree = "<group>"; };
+		2E584D882B42300C0027172E /* OrderListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderListTableViewCell.xib; sourceTree = "<group>"; };
 		2E584D8A2B42355C0027172E /* DataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
 		6B63CFBE2B3EFD7F00FE898B /* ButtonUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonUIView.xib; sourceTree = "<group>"; };
 		6B63CFBF2B3EFD7F00FE898B /* ButtonUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonUIView.swift; sourceTree = "<group>"; };
