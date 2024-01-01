@@ -11,7 +11,7 @@ struct DataList {
     var menuImage: String
     var menuName: String
     var menuPrice: Int
-    var menuCount: Int = 0
+    var menuCount: Int
 }
 
 class Order {

@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         buttonUIView.delegate = self
         
         
-        manuCollectionViewDelegate()
+        menuCollectionViewDelegate()
         
         //xib register
         registerNib(for: .mainMenu)
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
     }
     
-    private func manuCollectionViewDelegate(){
+    private func menuCollectionViewDelegate(){
         menuCollection.delegate = self
         menuCollection.dataSource = self
     }
@@ -125,26 +125,81 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     //셀 선택 셀?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
-        print(burgerData.dataArray[indexPath.row])
         
-        if self._order.cart.contains(where: { $0.menuName.contains(burgerData.dataArray[indexPath.row].menuName) }) {
-            //self._order.cart.menuCount += 1
-            self._order.calculateTotal()
-            self.totalMoney.text = String(self._order.totalPrice) + " 원"
-            self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+        
+        switch currentMenuType {
+        case .mainMenu:
+            let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
+            print(burgerData.dataArray[indexPath.row])
+
+            if let index = self._order.cart.firstIndex(where: { $0.menuName.contains(burgerData.dataArray[indexPath.row].menuName) }) {
+                // The menu item is already in the cart
+                self._order.cart[index].menuCount += 1
+                self._order.calculateTotal()
+                self.totalMoney.text = String(self._order.totalPrice) + " 원"
+                self.totalLabel.text = String(self._order.totalQuantity) + " 개"
                 
-            self.tableView.reloadData()
-            self.reloadInputViews()
-        } else {
-            self._order.cart.append(burgerData.dataArray[indexPath.row])
-                        
-            self._order.calculateTotal()
-            self.totalMoney.text = String(self._order.totalPrice ) + " 원"
-            self.totalLabel.text = String(self._order.totalQuantity ) + " 개"
-                        
-            self.tableView.reloadData()
+                self.tableView.reloadData()
+                self.reloadInputViews()
+            } else {
+                // The menu item is not in the cart, add it
+                self._order.cart.append(burgerData.dataArray[indexPath.row])
+                
+                self._order.calculateTotal()
+                self.totalMoney.text = String(self._order.totalPrice) + " 원"
+                self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+                
+                self.tableView.reloadData()
+            }
+        case .beverages:
+            let beverCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "Beverages", for: indexPath) as! Beverages
+            print(beveragesData.dataArray[indexPath.row])
+
+            if let index = self._order.cart.firstIndex(where: { $0.menuName.contains(beveragesData.dataArray[indexPath.row].menuName) }) {
+                // The menu item is already in the cart
+                self._order.cart[index].menuCount += 1
+                self._order.calculateTotal()
+                self.totalMoney.text = String(self._order.totalPrice) + " 원"
+                self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+                
+                self.tableView.reloadData()
+                self.reloadInputViews()
+            } else {
+                // The menu item is not in the cart, add it
+                self._order.cart.append(beveragesData.dataArray[indexPath.row])
+                
+                self._order.calculateTotal()
+                self.totalMoney.text = String(self._order.totalPrice) + " 원"
+                self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+                
+                self.tableView.reloadData()
+            }
+        case .sideMenu:
+            let sideCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "SideMenu", for: indexPath) as! SideMenu
+            print(sideMenuData.dataArray[indexPath.row])
+
+            if let index = self._order.cart.firstIndex(where: { $0.menuName.contains(sideMenuData.dataArray[indexPath.row].menuName) }) {
+                // The menu item is already in the cart
+                self._order.cart[index].menuCount += 1
+                self._order.calculateTotal()
+                self.totalMoney.text = String(self._order.totalPrice) + " 원"
+                self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+                
+                self.tableView.reloadData()
+                self.reloadInputViews()
+            } else {
+                // The menu item is not in the cart, add it
+                self._order.cart.append(sideMenuData.dataArray[indexPath.row])
+                
+                self._order.calculateTotal()
+                self.totalMoney.text = String(self._order.totalPrice) + " 원"
+                self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+                
+                self.tableView.reloadData()
+            }
         }
+        
+        
     }
     
     
@@ -200,38 +255,72 @@ extension ViewController: CategoryStackViewDelegate {
 //MARK: OrderTableView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuData.count
-    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return menuData.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListTableViewCell", for: indexPath) as? OrderListTableViewCell {
+//            cell.menuName.text = menuData[indexPath.row]
+//            cell.menuPrice.text = priceData[indexPath.row] + "원"
+//            cell.menuCount.text = "\(menuCntData)"
+//            
+//            // 매뉴증감 Closure event
+//            cell.plusBtn = {
+//                self.menuCntData += 1
+//                self.refreshLabel()
+//                tableView.reloadData()
+//                print("vc + closure")
+//                print("\(self.menuCntData)")
+//            }
+//            
+//            cell.minusBtn = {
+//                if(self.menuCntData > 0) {
+//                    self.menuCntData -= 1
+//                    self.refreshLabel()
+//                    tableView.reloadData()
+//                    print("vc + closure")
+//                    print("\(self.menuCntData)")
+//    
+//                }
+//            }
+//            return cell
+//        }
+//        return UITableViewCell()
+//    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return _order.cart.count
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListTableViewCell", for: indexPath) as? OrderListTableViewCell {
-            cell.menuName.text = menuData[indexPath.row]
-            cell.menuPrice.text = priceData[indexPath.row] + "원"
-            cell.menuCount.text = "\(menuCntData)"
-            
+            var orderItem = _order.cart[indexPath.row]
+            cell.menuName.text = orderItem.menuName
+            cell.menuPrice.text = "\(orderItem.menuPrice)" + "원"
+            cell.menuCount.text = "\(orderItem.menuCount)"
+
             // 매뉴증감 Closure event
             cell.plusBtn = {
-                self.menuCntData += 1
+                orderItem.menuCount += 1
+                self._order.calculateTotal()
                 self.refreshLabel()
                 tableView.reloadData()
-                print("vc + closure")
-                print("\(self.menuCntData)")
             }
-            
+
             cell.minusBtn = {
-                if(self.menuCntData > 0) {
-                    self.menuCntData -= 1
+                if orderItem.menuCount > 0 {
+                    orderItem.menuCount -= 1
+                    self._order.calculateTotal()
                     self.refreshLabel()
                     tableView.reloadData()
-                    print("vc + closure")
-                    print("\(self.menuCntData)")
-    
                 }
             }
+
             return cell
         }
         return UITableViewCell()
     }
+    
     
 }
