@@ -65,6 +65,11 @@ extension ViewController: ButtonUIViewDelegate {
             self._order.clearOrder()
             self.tableView.reloadData()
             
+            let cancelSuccessAlert = UIAlertController(title: "취소 완료", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            cancelSuccessAlert.addAction(okAction)
+            self.present(cancelSuccessAlert, animated: true, completion: nil)
+            
         })
         
         if totalLabel.text == "0 개" {
@@ -89,6 +94,11 @@ extension ViewController: ButtonUIViewDelegate {
             self.totalMoney.text = "0 원"
             self._order.clearOrder()
             self.tableView.reloadData()
+            
+            let successAlert = UIAlertController(title: "결제 성공!", message: nil, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            successAlert.addAction(okAction)
+            self.present(successAlert, animated: true, completion: nil)
         })
         
         if totalLabel.text == "0 개" {
