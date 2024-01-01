@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var count: Int = 0  // 장바구니
+    var _order = Order()
 
     @IBOutlet var menuCollection: UICollectionView!
     
@@ -30,8 +31,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var orderList : [OrderList] = []
     //dummy
-    let menuData = ["빅맥", "불고기버거", "치즈버거", "치킨버거"]
-    let priceData = ["4500", "3400", "5000", "4600"]
+    let menuData = ["빅맥", "불고기버거"]
+    let priceData = ["4500", "3400"]
     var menuCntData = 1
     
     //셀 식별자 구분
@@ -125,8 +126,25 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     //셀 선택 셀?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
-        print(burgerData.dataArray[indexPath.row].menuName)
-        print(burgerData.dataArray[indexPath.row].menuPrice)
+        print(burgerData.dataArray[indexPath.row])
+        
+        if self._order.cart.contains(where: { $0.menuName.contains(burgerData.dataArray[indexPath.row].menuName) }) {
+            //self._order.cart.menuCount += 1
+            self._order.calculateTotal()
+            self.totalMoney.text = String(self._order.totalPrice) + " 원"
+            self.totalLabel.text = String(self._order.totalQuantity) + " 개"
+                
+            self.tableView.reloadData()
+            self.reloadInputViews()
+        } else {
+            self._order.cart.append(burgerData.dataArray[indexPath.row])
+                        
+            self._order.calculateTotal()
+            self.totalMoney.text = String(self._order.totalPrice ) + " 원"
+            self.totalLabel.text = String(self._order.totalQuantity ) + " 개"
+                        
+            self.tableView.reloadData()
+        }
     }
     
     

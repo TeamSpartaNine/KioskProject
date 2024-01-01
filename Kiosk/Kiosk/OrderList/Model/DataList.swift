@@ -11,7 +11,30 @@ struct DataList {
     var menuImage: String
     var menuName: String
     var menuPrice: Int
-    var menuCount: Int
+    var menuCount: Int = 0
+}
+
+class Order {
+    var cart: [DataList] = []
+    
+    lazy var totalPrice: Int = 0
+    lazy var totalQuantity: Int = 0
+    
+    func calculateTotal() {
+        totalPrice = 0
+        totalQuantity = 0
+        
+        for `each` in self.cart {
+            self.totalPrice += `each`.menuPrice * `each`.menuCount
+            self.totalQuantity += `each`.menuCount
+        }
+    }
+    
+    func clearOrder() {
+        cart.removeAll()
+        totalPrice = 0
+        totalQuantity = 0
+    }
 }
 
 let burgerMenu: [DataList] = [

@@ -12,6 +12,7 @@ class OrderListTableViewCell: UITableViewCell {
     @IBOutlet weak var menuPrice: UILabel!
     @IBOutlet weak var menuName: UILabel!
     var cellCount : Int = 0
+    var dataList : DataList?
     var plusBtn : (() -> ())? // 매뉴증가 클로저
     var minusBtn : (() -> ())? // 매뉴감소 클로저
     
@@ -34,4 +35,5 @@ class OrderListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+
 }
