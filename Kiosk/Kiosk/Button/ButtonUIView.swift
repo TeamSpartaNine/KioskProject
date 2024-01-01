@@ -61,6 +61,8 @@ extension ViewController: ButtonUIViewDelegate {
         let okAction = UIAlertAction(title: "전체 취소", style: .default, handler: {action in
             print("취소 완료")
             self.totalLabel.text = "0 개"
+            
+            
         })
         
         if totalLabel.text == "0 개" {

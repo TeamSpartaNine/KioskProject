@@ -255,40 +255,6 @@ extension ViewController: CategoryStackViewDelegate {
 //MARK: OrderTableView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return menuData.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListTableViewCell", for: indexPath) as? OrderListTableViewCell {
-//            cell.menuName.text = menuData[indexPath.row]
-//            cell.menuPrice.text = priceData[indexPath.row] + "원"
-//            cell.menuCount.text = "\(menuCntData)"
-//            
-//            // 매뉴증감 Closure event
-//            cell.plusBtn = {
-//                self.menuCntData += 1
-//                self.refreshLabel()
-//                tableView.reloadData()
-//                print("vc + closure")
-//                print("\(self.menuCntData)")
-//            }
-//            
-//            cell.minusBtn = {
-//                if(self.menuCntData > 0) {
-//                    self.menuCntData -= 1
-//                    self.refreshLabel()
-//                    tableView.reloadData()
-//                    print("vc + closure")
-//                    print("\(self.menuCntData)")
-//    
-//                }
-//            }
-//            return cell
-//        }
-//        return UITableViewCell()
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return _order.cart.count
     }
