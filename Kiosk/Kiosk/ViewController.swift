@@ -84,6 +84,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.refreshLabel()
         setupFlowLayOut()
         
+<<<<<<< Updated upstream
+=======
+        //MARK: OrderTableView
+        self.tableView.register(UINib(nibName: "OrderListTableViewCell", bundle: nil), forCellReuseIdentifier: "OrderListTableViewCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
+>>>>>>> Stashed changes
         // 메뉴 컬렉션뷰에 핀치 제스처 추가
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
         pinchGesture.delegate = self
