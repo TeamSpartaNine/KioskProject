@@ -21,8 +21,8 @@
 		00F969F42B3D66AB00E59F97 /* SideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F969F22B3D66AB00E59F97 /* SideMenu.xib */; };
 		2E584D792B422A1E0027172E /* OrderListStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584D782B422A1E0027172E /* OrderListStruct.swift */; };
 		2E584D862B422F990027172E /* OrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584D842B422F990027172E /* OrderListTableViewCell.swift */; };
-		2E584D892B42300C0027172E /* OrderListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E584D882B42300C0027172E /* OrderListTableViewCell.xib */; };
 		2E584D8B2B42355C0027172E /* DataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E584D8A2B42355C0027172E /* DataList.swift */; };
+		2E584D932B4295360027172E /* OrderListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E584D922B4295360027172E /* OrderListTableViewCell.xib */; };
 		6B63CFC02B3EFD7F00FE898B /* ButtonUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B63CFBE2B3EFD7F00FE898B /* ButtonUIView.xib */; };
 		6B63CFC12B3EFD7F00FE898B /* ButtonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63CFBF2B3EFD7F00FE898B /* ButtonUIView.swift */; };
 		6BDDA5182B3E667F00E65BB4 /* CategoryStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDDA5162B3E667F00E65BB4 /* CategoryStackView.swift */; };
@@ -46,8 +46,8 @@
 		00F969F22B3D66AB00E59F97 /* SideMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenu.xib; sourceTree = "<group>"; };
 		2E584D782B422A1E0027172E /* OrderListStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListStruct.swift; sourceTree = "<group>"; };
 		2E584D842B422F990027172E /* OrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewCell.swift; sourceTree = "<group>"; };
-		2E584D882B42300C0027172E /* OrderListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderListTableViewCell.xib; path = ../../../../../../../../../../Downloads/OrderListTableViewCell.xib; sourceTree = "<group>"; };
 		2E584D8A2B42355C0027172E /* DataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
+		2E584D922B4295360027172E /* OrderListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderListTableViewCell.xib; sourceTree = "<group>"; };
 		6B63CFBE2B3EFD7F00FE898B /* ButtonUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonUIView.xib; sourceTree = "<group>"; };
 		6B63CFBF2B3EFD7F00FE898B /* ButtonUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonUIView.swift; sourceTree = "<group>"; };
 		6BDDA5162B3E667F00E65BB4 /* CategoryStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStackView.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		2E584D772B42297A0027172E /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				2E584D882B42300C0027172E /* OrderListTableViewCell.xib */,
+				2E584D922B4295360027172E /* OrderListTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 				00B95C422B3D3F37007C7BA7 /* BurgerMenu.xib in Resources */,
 				008274952B3BB9DF0070C53D /* LaunchScreen.storyboard in Resources */,
 				6BDDA5192B3E667F00E65BB4 /* CategoryStackView.xib in Resources */,
-				2E584D892B42300C0027172E /* OrderListTableViewCell.xib in Resources */,
+				2E584D932B4295360027172E /* OrderListTableViewCell.xib in Resources */,
 				00F969F42B3D66AB00E59F97 /* SideMenu.xib in Resources */,
 				008274922B3BB9DF0070C53D /* Assets.xcassets in Resources */,
 				6B63CFC02B3EFD7F00FE898B /* ButtonUIView.xib in Resources */,
