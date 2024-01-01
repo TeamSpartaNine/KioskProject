@@ -3,11 +3,10 @@
 //  Kiosk
 //
 //  Created by t2023-m0099 on 12/29/23.
-// 오잉
 
 import UIKit
 
-protocol ButtonUIViewDelegate: AnyObject { //시키는 곳
+protocol ButtonUIViewDelegate: AnyObject {
     func present()
     func payPresent()
 }
@@ -44,7 +43,6 @@ class ButtonUIView: UIView {
     
     @IBAction func cancelbutton(_ sender: Any) {
         delegate?.present()
-        // present뷰컨트롤러의 메서드. 객체간의 소통이다. delegating방식으로? 강의 arc 보기
     }
 
     @IBAction func pay(_ sender: Any) {
@@ -65,6 +63,7 @@ extension ViewController: ButtonUIViewDelegate {
             self._order.clearOrder()
             self.tableView.reloadData()
             
+            //취소 완료시 추가 alert
             let cancelSuccessAlert = UIAlertController(title: "취소 완료", message: nil, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             cancelSuccessAlert.addAction(okAction)
@@ -95,6 +94,7 @@ extension ViewController: ButtonUIViewDelegate {
             self._order.clearOrder()
             self.tableView.reloadData()
             
+            //결제 완료시 추가 alert
             let successAlert = UIAlertController(title: "결제 성공!", message: nil, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
             successAlert.addAction(okAction)
