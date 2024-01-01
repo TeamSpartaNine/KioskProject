@@ -61,7 +61,9 @@ extension ViewController: ButtonUIViewDelegate {
         let okAction = UIAlertAction(title: "전체 취소", style: .default, handler: {action in
             print("취소 완료")
             self.totalLabel.text = "0 개"
-            
+            self.totalMoney.text = "0 원"
+            self._order.clearOrder()
+            self.tableView.reloadData()
             
         })
         
@@ -84,6 +86,9 @@ extension ViewController: ButtonUIViewDelegate {
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "결제", style: .default, handler: {action in print("결제 완료")
             self.totalLabel.text = "0 개"
+            self.totalMoney.text = "0 원"
+            self._order.clearOrder()
+            self.tableView.reloadData()
         })
         
         if totalLabel.text == "0 개" {
