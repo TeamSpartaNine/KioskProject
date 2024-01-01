@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "008274842B3BB9DE0070C53D"
-               BuildableName = "Kiosk.app"
-               BlueprintName = "Kiosk"
+               BuildableName = "NineBurgers.app"
+               BlueprintName = "NineBurgers"
                ReferencedContainer = "container:NineBurgers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "008274842B3BB9DE0070C53D"
-            BuildableName = "Kiosk.app"
-            BlueprintName = "Kiosk"
+            BuildableName = "NineBurgers.app"
+            BlueprintName = "NineBurgers"
             ReferencedContainer = "container:NineBurgers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,8 +61,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "008274842B3BB9DE0070C53D"
-            BuildableName = "Kiosk.app"
-            BlueprintName = "Kiosk"
+            BuildableName = "NineBurgers.app"
+            BlueprintName = "NineBurgers"
             ReferencedContainer = "container:NineBurgers.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

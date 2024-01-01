@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		0037BA7D2B3D92E500000BAB /* Beverages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverages.swift; sourceTree = "<group>"; };
 		0037BA7E2B3D92E500000BAB /* Beverages.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Beverages.xib; sourceTree = "<group>"; };
-		008274852B3BB9DE0070C53D /* Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		008274852B3BB9DE0070C53D /* NineBurgers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NineBurgers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		008274882B3BB9DE0070C53D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0082748A2B3BB9DE0070C53D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0082748C2B3BB9DE0070C53D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		008274862B3BB9DE0070C53D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				008274852B3BB9DE0070C53D /* Kiosk.app */,
+				008274852B3BB9DE0070C53D /* NineBurgers.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,9 +192,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		008274842B3BB9DE0070C53D /* Kiosk */ = {
+		008274842B3BB9DE0070C53D /* NineBurgers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 008274992B3BB9DF0070C53D /* Build configuration list for PBXNativeTarget "Kiosk" */;
+			buildConfigurationList = 008274992B3BB9DF0070C53D /* Build configuration list for PBXNativeTarget "NineBurgers" */;
 			buildPhases = (
 				008274812B3BB9DE0070C53D /* Sources */,
 				008274822B3BB9DE0070C53D /* Frameworks */,
@@ -204,9 +204,9 @@
 			);
 			dependencies = (
 			);
-			name = Kiosk;
+			name = NineBurgers;
 			productName = Kiosk;
-			productReference = 008274852B3BB9DE0070C53D /* Kiosk.app */;
+			productReference = 008274852B3BB9DE0070C53D /* NineBurgers.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -237,7 +237,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				008274842B3BB9DE0070C53D /* Kiosk */,
+				008274842B3BB9DE0070C53D /* NineBurgers */,
 			);
 		};
 /* End PBXProject section */
@@ -487,7 +487,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		008274992B3BB9DF0070C53D /* Build configuration list for PBXNativeTarget "Kiosk" */ = {
+		008274992B3BB9DF0070C53D /* Build configuration list for PBXNativeTarget "NineBurgers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0082749A2B3BB9DF0070C53D /* Debug */,

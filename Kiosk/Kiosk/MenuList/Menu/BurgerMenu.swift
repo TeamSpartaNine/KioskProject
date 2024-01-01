@@ -10,24 +10,24 @@ import UIKit
 class BurgerMenu: UICollectionViewCell {
     @IBOutlet var mainMenuImage: UIImageView!
     
+    @IBOutlet var menuPriceLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
 }
 struct BurGerData{
-    private var arr = [UIImage]()
+    private var arr = [DataList]()
     
     init(){
         createImage()
     }
     mutating func createImage(){
-        for index in 0...3{
-            if let image = UIImage(named: "Image\(index).png"){arr.append(image)
-            }
+        for data in burgerMenu{
+            arr.append(DataList(menuImage: data.menuImage, menuName:  data.menuName, menuPrice: data.menuPrice, menuCount: 1 ))
         }
     }
-    var imageArray: [UIImage]{
+    var dataArray: [DataList]{
         return arr
     }
 }

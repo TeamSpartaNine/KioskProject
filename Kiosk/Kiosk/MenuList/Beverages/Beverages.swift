@@ -11,6 +11,7 @@ class Beverages: UICollectionViewCell {
     
     @IBOutlet var beverages: UIImageView!
     
+    @IBOutlet var beveragesPrice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,18 +19,17 @@ class Beverages: UICollectionViewCell {
 }
 
 struct BeveragesData{
-    private var beveragesArr = [UIImage]()
+    private var beveragesArr = [DataList]()
     
     init(){
         createImage()
     }
     mutating func createImage(){
-        for index in 0...3{
-            if let image = UIImage(named: "Beverages\(index).png"){beveragesArr.append(image)
-            }
+        for data in beverages{
+            beveragesArr.append(DataList(menuImage: data.menuImage, menuName: data.menuName, menuPrice: data.menuPrice, menuCount: 1 ))
         }
     }
-    var imageArray: [UIImage]{
+    var dataArray: [DataList]{
         return beveragesArr
     }
 }

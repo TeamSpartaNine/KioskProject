@@ -10,24 +10,25 @@ import UIKit
 class SideMenu: UICollectionViewCell {
     @IBOutlet var sideMenu: UIImageView!
     
+    @IBOutlet var sideMenuPrice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
 }
 struct SideMenuData{
-    private var sideArr = [UIImage]()
+    private var sideArr = [DataList]()
     
     init(){
         createImage()
     }
     mutating func createImage(){
-        for index in 0...3{
-            if let image = UIImage(named: "SideMenu\(index).png"){sideArr.append(image)
+        for data in sideMenu{
+            sideArr.append(DataList(menuImage: data.menuImage, menuName: data.menuName, menuPrice: data.menuPrice, menuCount: 1 ))
             }
         }
-    }
-    var imageArray: [UIImage]{
+    var dataArray: [DataList]{
         return sideArr
     }
 }
+

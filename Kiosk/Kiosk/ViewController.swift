@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var categoryStackView: CategoryStackView!
 
-    
     //이미지 데이터들
     private var burgerData = BurGerData()
     private var beveragesData = BeveragesData()
@@ -61,7 +60,7 @@ class ViewController: UIViewController {
 
         reloadMenu(type: .mainMenu) // 초기에는 메인메뉴를 보여줌
          
-        kioskTitle.text = "NineBugers"
+        kioskTitle.text = "🍔NineBugers🍔"
         total.text = "총주문내역"
         total.textAlignment = .center
         
@@ -88,7 +87,7 @@ class ViewController: UIViewController {
         flowLayout.minimumLineSpacing = 10
         
         let halfWidth = UIScreen.main.bounds.width / 2
-        flowLayout.itemSize = CGSize(width: halfWidth * 0.4, height: halfWidth * 0.4)
+        flowLayout.itemSize = CGSize(width: halfWidth * 0.5, height: halfWidth * 0.5)
         self.menuCollection.collectionViewLayout = flowLayout
     }
     
@@ -127,11 +126,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch currentMenuType {
         case .mainMenu:
-            return burgerData.imageArray.count
+            return burgerData.dataArray.count
         case .beverages:
-            return beveragesData.imageArray.count
+            return beveragesData.dataArray.count
         case .sideMenu:
-            return sideMenuData.imageArray.count
+            return sideMenuData.dataArray.count
         }
     }
     
@@ -141,15 +140,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         switch currentMenuType {
         case .mainMenu:
             let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
-            burgerCell.mainMenuImage.image = burgerData.imageArray[indexPath.row]
+            burgerCell.mainMenuImage.image = UIImage(named: burgerData.dataArray[indexPath.row].menuImage)
+                    // 메뉴 이름 및 가격 업데이트
+            burgerCell.menuPriceLabel.text = "\(burgerData.dataArray[indexPath.row].menuName) \n \(burgerData.dataArray[indexPath.row].menuPrice)원"
             cell = burgerCell
+            
         case .beverages:
             let beveragesCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "Beverages", for: indexPath) as! Beverages
-            beveragesCell.beverages.image = beveragesData.imageArray[indexPath.row]
+            beveragesCell.beverages.image = UIImage(named: beveragesData.dataArray[indexPath.row].menuImage)
+                    // 메뉴 이름 및 가격 업데이트
+            beveragesCell.beveragesPrice.text = "\(beveragesData.dataArray[indexPath.row].menuName) \n \(beveragesData.dataArray[indexPath.row].menuPrice)원"
             cell = beveragesCell
-        case .sideMenu:
+            
+        case .sideMenu:        
             let sideMenuCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "SideMenu", for: indexPath) as! SideMenu
-            sideMenuCell.sideMenu.image = sideMenuData.imageArray[indexPath.row]
+            sideMenuCell.sideMenu.image = UIImage(named: sideMenuData.dataArray[indexPath.row].menuImage)
+            // 메뉴 이름 및 가격 업데이트
+            sideMenuCell.sideMenuPrice.text = "\(sideMenuData.dataArray[indexPath.row].menuName) \n \(sideMenuData.dataArray[indexPath.row].menuPrice)원"
             cell = sideMenuCell
         }
         return cell
