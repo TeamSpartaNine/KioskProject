@@ -19,7 +19,7 @@ class Beverages: UICollectionViewCell {
 }
 
 struct BeveragesData{
-    private var beveragesArr = [DataList]()
+    var beveragesArr = [DataList]()
     
     init(){
         createImage()

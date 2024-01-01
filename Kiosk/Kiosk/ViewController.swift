@@ -122,6 +122,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    //셀 선택 셀?
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
+        print(burgerData.dataArray[indexPath.row].menuName)
+        print(burgerData.dataArray[indexPath.row].menuPrice)
+    }
+    
+    
     //아이템 개수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch currentMenuType {

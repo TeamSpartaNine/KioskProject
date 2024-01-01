@@ -17,7 +17,7 @@ class BurgerMenu: UICollectionViewCell {
 
 }
 struct BurGerData{
-    private var arr = [DataList]()
+    var arr = [DataList]()
     
     init(){
         createImage()

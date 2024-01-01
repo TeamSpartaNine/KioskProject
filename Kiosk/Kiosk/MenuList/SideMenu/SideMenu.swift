@@ -17,7 +17,7 @@ class SideMenu: UICollectionViewCell {
 
 }
 struct SideMenuData{
-    private var sideArr = [DataList]()
+    var sideArr = [DataList]()
     
     init(){
         createImage()
