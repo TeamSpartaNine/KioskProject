@@ -26,7 +26,29 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var total: UILabel!
     @IBOutlet var totalMoney: UILabel!
+    
+    //결제, 취소 버튼 아울렛
+    @IBOutlet weak var buttonUIView: ButtonUIView!
+    
+    // 메인메뉴 햄버거
+    @IBAction func mainMenu(_ sender: Any) {
+        self.count += 1
+        self.refreshLabel()
+    }
 
+    // 사이드메뉴
+    @IBAction func sideMenu(_ sender: Any) {
+    }
+    
+    //음료메뉴
+    @IBAction func beverages(_ sender: Any) {
+    }
+
+    //장바구니 카운트
+    func refreshLabel(){
+        self.totalLabel.text = "\(self.count) 개"
+    }
+    
     //셀 식별자 구분
     public enum MenuType: String {
         case mainMenu = "BurgerMenu"
@@ -36,7 +58,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     //초기메뉴화면
     var currentMenuType: MenuType = .mainMenu
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +78,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         kioskTitle.text = "NineBugers"
         total.text = "총주문내역"
         total.textAlignment = .center
+
+        buttonUIView.delegate = self
         
         self.refreshLabel()
         setupFlowLayOut()
@@ -88,11 +112,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     func reloadMenu(type: MenuType) {
            currentMenuType = type
            menuCollection.reloadData()  //화면 갱신
-    }
-    
-    //장바구니 카운트
-    func refreshLabel(){
-        self.totalLabel.text = "\(self.count) 개"
     }
     
     //XIB
@@ -134,9 +153,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             break
         }
     }
-
-
-
 
     // 동시에 제스처 인식 가능하도록 하는 델리게이트 메서드
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -186,4 +202,3 @@ extension ViewController: CategoryStackViewDelegate {
         reloadMenu(type: type)
     }
 }
-
