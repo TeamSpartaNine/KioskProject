@@ -12,7 +12,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     //셀 선택 셀?
     internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
         switch currentMenuType {
         case .mainMenu:
             _ = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
@@ -84,10 +83,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 self.tableView.reloadData()
             }
         }
-        
-        
     }
-    
     
     //아이템 개수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

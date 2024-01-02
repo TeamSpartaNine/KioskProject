@@ -11,14 +11,11 @@ protocol ButtonUIViewDelegate: AnyObject {
     func payPresent()
 }
 
-
 class ButtonUIView: UIView {
-    
     
     weak var delegate: ButtonUIViewDelegate?
     
     @IBOutlet weak var cancelbutton: UIButton!
-    
     
     @IBOutlet weak var paybutton: UIButton!
     
@@ -36,10 +33,8 @@ class ButtonUIView: UIView {
         if let view = Bundle.main.loadNibNamed("ButtonUIView", owner: self, options: nil)?.first as? UIView {
             view.frame = self.bounds
             addSubview(view)
-            
         }
     }
-    
     
     @IBAction func cancelbutton(_ sender: Any) {
         delegate?.present()
@@ -48,7 +43,6 @@ class ButtonUIView: UIView {
     @IBAction func pay(_ sender: Any) {
         delegate?.payPresent()
     }
-    
 }
 
 extension ViewController: ButtonUIViewDelegate {
@@ -76,7 +70,6 @@ extension ViewController: ButtonUIViewDelegate {
         } else {
             okAction.isEnabled = true
         }
-        
         
         cancelAlert.addAction(okAction)
         cancelAlert.addAction(cancelAction)
