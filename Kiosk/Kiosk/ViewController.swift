@@ -116,10 +116,3 @@ class ViewController: UIViewController {
         menuCollection.register(nib, forCellWithReuseIdentifier: nibName)
     }
 }
-
-extension ViewController: CategoryStackViewDelegate {
-    func changeToMenu(type: MenuType) {
-        print(#function)
-        reloadMenu(type: type)
-    }
-}

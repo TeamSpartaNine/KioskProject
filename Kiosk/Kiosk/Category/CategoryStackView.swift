@@ -58,3 +58,10 @@ class CategoryStackView: UIStackView {
 protocol CategoryStackViewDelegate: AnyObject {
     func changeToMenu(type: ViewController.MenuType)
 }
+
+extension ViewController: CategoryStackViewDelegate {
+    func changeToMenu(type: MenuType) {
+        print(#function)
+        reloadMenu(type: type)
+    }
+}
