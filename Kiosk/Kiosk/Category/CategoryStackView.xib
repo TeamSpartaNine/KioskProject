@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryStackView" customModule="Kiosk" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryStackView" customModule="NineBurgers" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="2" id="P7h-Pg-trB">
             <rect key="frame" x="0.0" y="0.0" width="110" height="203"/>
@@ -18,7 +18,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="MainMenu"/>
                     <connections>
-                        <action selector="TapMainMenu:" destination="-1" eventType="touchUpInside" id="FvD-HN-6qf"/>
+                        <action selector="tapMainMenu:" destination="-1" eventType="touchUpInside" id="2Yq-1W-E52"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-sg-NXM">
@@ -26,7 +26,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="SideMenu"/>
                     <connections>
-                        <action selector="TapSideMenu:" destination="-1" eventType="touchUpInside" id="Dnw-cG-F6B"/>
+                        <action selector="tapSideMenu:" destination="-1" eventType="touchUpInside" id="TZu-Pw-1Hq"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUc-lV-vac">
@@ -34,7 +34,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Beverage"/>
                     <connections>
-                        <action selector="TapBeverage:" destination="-1" eventType="touchUpInside" id="Udk-SA-jUy"/>
+                        <action selector="tapBeverage:" destination="-1" eventType="touchUpInside" id="1Jh-4V-izd"/>
                     </connections>
                 </button>
             </subviews>

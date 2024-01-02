@@ -11,19 +11,19 @@ class CategoryStackView: UIStackView {
     
     weak var delegate: CategoryStackViewDelegate?
     
-    @IBAction func TapMainMenu(_ sender: Any) {
+    @IBAction func tapMainMenu(_ sender: Any) {
         print("메인메뉴 선택")
 
         delegate?.changeToMenu(type: .mainMenu)
     }
     
-    @IBAction func TapSideMenu(_ sender: Any) {
+    @IBAction func tapSideMenu(_ sender: Any) {
         print("사이드메뉴 선택")
 
         delegate?.changeToMenu(type: .sideMenu)
     }
     
-    @IBAction func TapBeverage(_ sender: Any) {
+    @IBAction func tapBeverage(_ sender: Any) {
         print("음료메뉴 선택")
 
         delegate?.changeToMenu(type: .beverages)

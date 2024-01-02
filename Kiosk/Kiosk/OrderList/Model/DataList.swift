@@ -24,9 +24,9 @@ class Order {
         totalPrice = 0
         totalQuantity = 0
         
-        for `each` in self.cart {
-            self.totalPrice += `each`.menuPrice * `each`.menuCount
-            self.totalQuantity += `each`.menuCount
+        for numbers in self.cart {
+            self.totalPrice += numbers.menuPrice * numbers.menuCount
+            self.totalQuantity += numbers.menuCount
         }
     }
     
