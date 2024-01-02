@@ -30,10 +30,6 @@ class ViewController: UIViewController {
     //MARK: OrderList TableView
     @IBOutlet weak var tableView: UITableView!
     var orderList : [OrderList] = []
-    //dummy
-    let menuData = ["빅맥", "불고기버거"]
-    let priceData = ["4500", "3400"]
-    var menuCntData = 1
     
     //셀 식별자 구분
     public enum MenuType: String {
@@ -64,6 +60,7 @@ class ViewController: UIViewController {
         kioskTitle.text = "🍔NineBugers🍔"
         total.text = "총주문내역"
         total.textAlignment = .center
+        totalMoney.text = "0원"
         
         self.refreshLabel()
         setupFlowLayOut()
@@ -100,7 +97,7 @@ class ViewController: UIViewController {
     
     //장바구니 카운트
     func refreshLabel(){
-        self.totalLabel.text = "\(self.count) 개"
+        self.totalLabel.text = "\(self._order.totalQuantity) 개"
     }
     
     //XIB
@@ -129,7 +126,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         switch currentMenuType {
         case .mainMenu:
-            let burgerCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
+            _ = menuCollection.dequeueReusableCell(withReuseIdentifier: "BurgerMenu", for: indexPath) as! BurgerMenu
             print(burgerData.dataArray[indexPath.row])
 
             if let index = self._order.cart.firstIndex(where: { $0.menuName.contains(burgerData.dataArray[indexPath.row].menuName) }) {
@@ -152,7 +149,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 self.tableView.reloadData()
             }
         case .beverages:
-            let beverCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "Beverages", for: indexPath) as! Beverages
+            _ = menuCollection.dequeueReusableCell(withReuseIdentifier: "Beverages", for: indexPath) as! Beverages
             print(beveragesData.dataArray[indexPath.row])
 
             if let index = self._order.cart.firstIndex(where: { $0.menuName.contains(beveragesData.dataArray[indexPath.row].menuName) }) {
@@ -175,7 +172,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
                 self.tableView.reloadData()
             }
         case .sideMenu:
-            let sideCell = menuCollection.dequeueReusableCell(withReuseIdentifier: "SideMenu", for: indexPath) as! SideMenu
+            _ = menuCollection.dequeueReusableCell(withReuseIdentifier: "SideMenu", for: indexPath) as! SideMenu
             print(sideMenuData.dataArray[indexPath.row])
 
             if let index = self._order.cart.firstIndex(where: { $0.menuName.contains(sideMenuData.dataArray[indexPath.row].menuName) }) {
@@ -268,20 +265,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
             // 매뉴증감 Closure event
             cell.plusBtn = {
-                orderItem.menuCount += 1
+                self._order.cart[indexPath.row].menuCount += 1
                 self._order.calculateTotal()
-                self.refreshLabel()
+                self.totalLabel.text = "\(self._order.totalQuantity) 개"
+                self.totalMoney.text = "\(self._order.totalPrice) 원"
                 tableView.reloadData()
             }
 
             cell.minusBtn = {
                 if orderItem.menuCount > 0 {
-                    orderItem.menuCount -= 1
+                    self._order.cart[indexPath.row].menuCount -= 1
                     self._order.calculateTotal()
-                    self.refreshLabel()
+                    self.totalLabel.text = "\(self._order.totalQuantity) 개"
+                    self.totalMoney.text = "\(self._order.totalPrice) 원"
+                    tableView.reloadData()
+                } else if self._order.totalQuantity == 0 {
+                    self._order.clearOrder()
                     tableView.reloadData()
                 }
             }
+            
+            print(_order.cart[indexPath.row].menuCount)
+            print(_order.totalPrice)
 
             return cell
         }
