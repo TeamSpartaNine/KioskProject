@@ -41,10 +41,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                     tableView.reloadData()
                 }
             }
-            
             print(_order.cart[indexPath.row].menuCount)
             print(_order.totalPrice)
-
             return cell
         }
         return UITableViewCell()

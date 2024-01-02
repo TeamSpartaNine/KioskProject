@@ -14,8 +14,8 @@ class SideMenu: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }
+
 struct SideMenuData{
     var sideArr = [DataList]()
     

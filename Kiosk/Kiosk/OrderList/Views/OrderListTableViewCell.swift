@@ -26,7 +26,6 @@ class OrderListTableViewCell: UITableViewCell {
     var mcount: Int = 0
     var price: Int = 0
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -34,6 +33,4 @@ class OrderListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-
 }

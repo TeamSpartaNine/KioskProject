@@ -14,8 +14,8 @@ class BurgerMenu: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
 }
+
 struct BurGerData{
     var arr = [DataList]()
     
